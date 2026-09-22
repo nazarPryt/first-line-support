@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Manage the Telegram webhook without ever printing the bot token.
-# Usage: scripts/webhook.sh set|info|delete
+# Usage: bun run telegram:webhook:set | telegram:webhook:info | telegram:webhook:delete
 set -euo pipefail
 
 cd "$(dirname "$0")/.."

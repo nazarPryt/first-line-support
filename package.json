@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "supabase": "supabase",
-    "webhook": "bash scripts/webhook.sh"
+    "telegram:webhook:set": "bash scripts/webhook.sh set",
+    "telegram:webhook:info": "bash scripts/webhook.sh info",
+    "telegram:webhook:delete": "bash scripts/webhook.sh delete"
   },
   "devDependencies": {
     "supabase": "^2.117.0"
