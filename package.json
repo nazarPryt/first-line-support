@@ -2,7 +2,8 @@
   "name": "first-line-support",
   "private": true,
   "scripts": {
-    "supabase": "supabase"
+    "supabase": "supabase",
+    "webhook": "bash scripts/webhook.sh"
   },
   "devDependencies": {
     "supabase": "^2.117.0"
