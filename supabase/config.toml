@@ -424,3 +424,17 @@ entrypoint = "./functions/telegram-bot/index.ts"
 # Specifies static files to be bundled with the function. Supports glob patterns.
 # For example, if you want to serve static HTML pages in your function:
 # static_files = [ "./functions/telegram-bot/*.html" ]
+
+# Auth is checked in code by withSupabase({ auth: "secret" }); the platform JWT check doesn't understand sb_secret_ keys.
+[functions.get-clients]
+enabled = true
+verify_jwt = false
+import_map = "./functions/get-clients/deno.json"
+entrypoint = "./functions/get-clients/index.ts"
+
+# Auth is checked in code by withSupabase({ auth: "secret" }); the platform JWT check doesn't understand sb_secret_ keys.
+[functions.get-messages]
+enabled = true
+verify_jwt = false
+import_map = "./functions/get-messages/deno.json"
+entrypoint = "./functions/get-messages/index.ts"
