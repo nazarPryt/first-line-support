@@ -1,1 +1,9 @@
 .idea
+node_modules
+
+# secrets
+.env
+supabase/functions/.env
+
+# stray Deno lockfile at repo root (functions use their own deno.json)
+/deno.lock
