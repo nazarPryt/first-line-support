@@ -25,9 +25,10 @@ bun run gen:types                        # regenerate web/src/lib/database.types
 
 bun run telegram:webhook:set|info|delete # point Telegram at the deployed telegram-bot function
 
-bun run env:decrypt                      # .env.production.enc -> supabase/functions/.env (needs age key)
-bun run env:edit                         # edit encrypted env in place
-bun run env:encrypt                      # re-encrypt supabase/functions/.env
+bun run supabase:env:decrypt             # .env.production.enc -> supabase/functions/.env (needs age key)
+bun run supabase:env:edit                # edit encrypted env in place
+bun run supabase:env:encrypt             # re-encrypt supabase/functions/.env
+bun run web:env:decrypt|edit|encrypt     # same for web/.env.production.enc <-> web/.env.local
 ```
 
 There are no tests. `web/` uses Biome for linting and formatting: `bun run lint` (`biome check`) and `bun run lint:fix` (`biome check --write`); config in `web/biome.json` (2 spaces, single quotes, no semicolons, 120 cols; generated `database.types.ts` is excluded). The system Node is 18, which Vite 8 doesn't support, so the web scripts run Vite under Bun (`bun --bun vite`).
@@ -44,4 +45,5 @@ There are no tests. `web/` uses Biome for linting and formatting: `bun run lint`
 
 - `supabase/functions/.env` (gitignored) holds `TELEGRAM_BOT_TOKEN` and `TELEGRAM_WEBHOOK_SECRET`; see `.env.example`.
 - The committed copy is `supabase/functions/.env.production.enc`, encrypted with sops + age (`.sops.yaml`).
+- `web/.env.local` (gitignored) holds `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` (see `web/.env.example`); its committed copy is `web/.env.production.enc`, encrypted the same way. These values end up in the browser bundle anyway, so never put the secret key there.
 - `scripts/webhook.sh` reads the project ref from `supabase/.temp/project-ref`, so the CLI must be linked (`supabase link`) first. It deliberately never echoes the bot token.
