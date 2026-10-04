@@ -1,0 +1,31 @@
+{
+  "name": "web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --bun vite",
+    "build": "tsc -b && bun --bun vite build",
+    "lint": "biome check",
+    "lint:fix": "biome check --write",
+    "preview": "bun --bun vite preview"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "@tanstack/react-query": "^5.104.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router": "^8.4.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

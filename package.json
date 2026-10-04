@@ -3,6 +3,10 @@
   "private": true,
   "scripts": {
     "supabase": "supabase",
+    "supabase:db:migrate:prod": "supabase db push",
+    "web:dev": "cd web && bun run dev",
+    "web:build": "cd web && bun run build",
+    "gen:types": "supabase gen types typescript --linked > web/src/lib/database.types.ts",
     "telegram:webhook:set": "bash scripts/webhook.sh set",
     "telegram:webhook:info": "bash scripts/webhook.sh info",
     "telegram:webhook:delete": "bash scripts/webhook.sh delete",
@@ -14,3 +18,4 @@
     "supabase": "^2.117.0"
   }
 }
+
