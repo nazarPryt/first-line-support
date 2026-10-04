@@ -7,3 +7,6 @@ supabase/functions/.env
 
 # stray Deno lockfile at repo root (functions use their own deno.json)
 /deno.lock
+
+# personal notes
+TODO.md
