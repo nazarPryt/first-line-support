@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from 'react-router'
+import { SignOutDialog } from '@/components/sign-out-dialog'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { useIsOperator } from '@/hooks/queries'
 import { useSession } from '@/hooks/useSession'
-import { supabase } from '@/lib/supabase'
 import Inbox from '@/pages/Inbox'
 import Login from '@/pages/Login'
 
@@ -28,9 +28,11 @@ function Authorized({ userId, email }: { userId: string; email?: string }) {
             {email} does not have operator access. Ask an admin to add you as an operator.
           </AlertDescription>
         </Alert>
-        <Button type="button" variant="outline" onClick={() => supabase.auth.signOut()}>
-          Sign out
-        </Button>
+        <SignOutDialog>
+          <Button type="button" variant="outline">
+            Sign out
+          </Button>
+        </SignOutDialog>
       </div>
     )
   }
